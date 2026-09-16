@@ -4,9 +4,20 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      // Phase 5에서 Notion 이미지 도메인 추가 예정
+      // Notion 첨부 이미지 도메인
+      {
+        protocol: 'https',
+        hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.amazonaws.com',
+      },
     ],
   },
+  // 성능 최적화
+  swcMinify: true,
+  compress: true,
 };
 
 export default nextConfig;
